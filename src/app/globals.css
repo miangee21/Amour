@@ -24,6 +24,51 @@
 
   --ring: #b85c6b;
   --radius: 0.75rem;
+
+  /* Paper Marketing Theme — Light */
+  --paper-page-background: #f9f3f1;
+  --paper-heading: #4a2e3d;
+  --paper-text: #5c3a48;
+  --paper-muted: #8a6572;
+
+  --paper-glow: rgba(255, 255, 255, 0.6);
+  --paper-glow-end: rgba(0, 0, 0, 0.05);
+
+  --paper-shadow: 0 25px 50px rgba(74, 46, 61, 0.2);
+  --paper-image-filter: drop-shadow(var(--paper-shadow));
+  --paper-petal-shadow: 0 4px 6px rgba(74, 46, 61, 0.16);
+  --paper-soft-shadow: 0 2px 4px rgba(74, 46, 61, 0.1);
+  --paper-wax-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  --paper-toggle-background: #faf5f2;
+  --paper-toggle-border: rgba(232, 220, 203, 0.8);
+  --paper-toggle-inner-border: rgba(213, 194, 179, 0.5);
+  --paper-toggle-texture-opacity: 0.3;
+  --paper-toggle-texture-filter: none;
+
+  /* Marketing and theme component effects */
+  --theme-toggle-sun: #d4af37;
+  --theme-toggle-moon: #9c6d55;
+  --marketing-gold-particle-shadow: 0 0 8px rgba(212, 175, 106, 0.9);
+  --marketing-primary-dot-shadow: 0 0 8px var(--color-primary);
+  --marketing-share-shadow: 0 0 30px rgba(212, 175, 106, 0.15);
+  --ambient-petal-opacity-strong: 0.7;
+  --ambient-petal-opacity-soft: 0.62;
+  --ambient-petal-filter: saturate(1.35) brightness(1.08);
+  --ambient-gold-shadow: 0 0 10px rgba(212, 175, 106, 1);
+
+  /* not found */
+  --not-found-card: #fffbf9;
+  --not-found-card-border: #e8dcd7;
+  --not-found-soft-surface: #faf4f0;
+  --not-found-soft-border: #e2cfc7;
+  --not-found-wax-dark: #7a2c3b;
+  --not-found-wax-deep: #873443;
+  --not-found-deep-rose: #7a2c3b;
+  --not-found-wax-highlight: #fcd58c;
+  --not-found-ink: #4a2e3d;
+  --not-found-petal: #b85c6b;
+  --not-found-stamp-ink: #7a2c3b;
+  --not-found-card-shadow: 0 25px 50px rgba(74, 46, 61, 0.2);
 }
 
 .dark {
@@ -46,6 +91,51 @@
   --destructive-foreground: #2a1b22;
 
   --ring: #b85c6b;
+
+  /* Paper Marketing Theme — Dark */
+  --paper-page-background: #21171d;
+  --paper-heading: #3f2834;
+  --paper-text: #533441;
+  --paper-muted: #765663;
+
+  --paper-glow: rgba(255, 255, 255, 0.08);
+  --paper-glow-end: rgba(0, 0, 0, 0.28);
+
+  --paper-shadow: 0 25px 50px rgba(0, 0, 0, 0.45);
+  --paper-image-filter: brightness(0.68) saturate(0.85)
+    drop-shadow(var(--paper-shadow));
+  --paper-petal-shadow: 0 4px 6px rgba(0, 0, 0, 0.28);
+  --paper-soft-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --paper-wax-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+  --paper-toggle-background: #21171d;
+  --paper-toggle-border: #4a2e3d;
+  --paper-toggle-inner-border: transparent;
+  --paper-toggle-texture-opacity: 0.24;
+  --paper-toggle-texture-filter: brightness(0.45) saturate(0.85);
+
+  --theme-toggle-sun: #d4af37;
+  --theme-toggle-moon: #9c6d55;
+  --marketing-gold-particle-shadow: 0 0 8px rgba(212, 175, 106, 0.9);
+  --marketing-primary-dot-shadow: 0 0 8px var(--color-primary);
+  --marketing-share-shadow: 0 0 30px rgba(212, 175, 106, 0.15);
+  --ambient-petal-opacity-strong: 0.62;
+  --ambient-petal-opacity-soft: 0.56;
+  --ambient-petal-filter: saturate(1) brightness(1);
+  --ambient-gold-shadow: 0 0 10px rgba(212, 175, 106, 1);
+
+  /* not found */
+  --not-found-card: #322029;
+  --not-found-card-border: #4a2e3d;
+  --not-found-soft-surface: #3a2430;
+  --not-found-soft-border: #4a2e3d;
+  --not-found-wax-dark: #7a2c3b;
+  --not-found-wax-deep: #873443;
+  --not-found-deep-rose: #f3dede;
+  --not-found-wax-highlight: #fcd58c;
+  --not-found-ink: #f3dede;
+  --not-found-petal: #c97283;
+  --not-found-stamp-ink: #d4af6a;
+  --not-found-card-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
 }
 
 @theme inline {
@@ -67,6 +157,12 @@
   --color-destructive-foreground: var(--destructive-foreground);
 
   --color-ring: var(--ring);
+
+  /* Paper Marketing Theme */
+  --color-paper-page-background: var(--paper-page-background);
+  --color-paper-heading: var(--paper-heading);
+  --color-paper-text: var(--paper-text);
+  --color-paper-muted: var(--paper-muted);
   --radius-DEFAULT: var(--radius);
 
   /* wired from next/font in src/app/layout.tsx — no fallback strings here on purpose */
@@ -81,5 +177,66 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-body);
+  }
+}
+
+.paper-background {
+  filter: var(--paper-image-filter);
+}
+
+.paper-tone-overlay {
+  background: var(--paper-tone-overlay);
+}
+
+.paper-toggle-texture {
+  opacity: var(--paper-toggle-texture-opacity);
+  filter: var(--paper-toggle-texture-filter);
+}
+
+@keyframes ambient-petal-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-12deg);
+  }
+  50% {
+    transform: translate3d(10px, -18px, 0) rotate(8deg);
+  }
+}
+
+@keyframes ambient-gold-float {
+  0%,
+  100% {
+    transform: translate3d(0, 8px, 0) scale(0.75);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translate3d(8px, -14px, 0) scale(1);
+    opacity: 0.75;
+  }
+}
+
+.ambient-petal {
+  filter: var(--ambient-petal-filter);
+  animation: ambient-petal-drift 7s ease-in-out infinite;
+}
+
+.ambient-petal-strong {
+  opacity: var(--ambient-petal-opacity-strong);
+}
+
+.ambient-petal-soft {
+  opacity: var(--ambient-petal-opacity-soft);
+}
+
+.ambient-gold-particle {
+  background: var(--accent);
+  box-shadow: var(--ambient-gold-shadow);
+  animation: ambient-gold-float 4.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-petal,
+  .ambient-gold-particle {
+    animation: none;
   }
 }
