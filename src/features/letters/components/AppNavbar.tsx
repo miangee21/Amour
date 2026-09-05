@@ -64,13 +64,21 @@ export function AppNavbar() {
         <nav className="hidden md:flex items-center gap-2">
           <Link
             href="/dashboard"
-            className="px-4 py-1.5 rounded-full hover:bg-surface text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
+              pathname === "/dashboard"
+                ? "bg-surface text-foreground"
+                : "text-muted-foreground hover:bg-surface hover:text-foreground"
+            }`}
           >
             Dashboard
           </Link>
           <Link
             href="/new"
-            className="px-4 py-1.5 rounded-full hover:bg-surface text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
+              pathname === "/new"
+                ? "bg-surface text-foreground"
+                : "text-muted-foreground hover:bg-surface hover:text-foreground"
+            }`}
           >
             New Letter
           </Link>
@@ -83,8 +91,10 @@ export function AppNavbar() {
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-1.5 p-1 pr-2 rounded-full outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring hover:bg-surface border border-transparent hover:border-border transition-all">
               <Avatar className="h-7 w-7 border border-border">
-                <AvatarFallback className="bg-surface-elevated text-foreground text-xs font-medium">
-                  {user?.name?.[0]?.toUpperCase() ?? "?"}
+                <AvatarFallback
+                  className={`bg-surface-elevated text-foreground text-xs font-medium transition-all duration-300 ${user === undefined ? "blur-sm bg-border/40" : ""}`}
+                >
+                  {user?.name?.[0]?.toUpperCase() ?? ""}
                 </AvatarFallback>
               </Avatar>
               <ChevronDown className="w-4 h-4 text-muted-foreground" />
@@ -97,8 +107,10 @@ export function AppNavbar() {
                 <DropdownMenuLabel className="font-normal p-2">
                   <div className="flex items-center gap-3">
                     <Avatar className="h-10 w-10 border border-border shadow-sm">
-                      <AvatarFallback className="bg-surface text-primary text-lg font-medium">
-                        {user?.name?.[0]?.toUpperCase() ?? "?"}
+                      <AvatarFallback
+                        className={`bg-surface text-primary text-lg font-medium transition-all duration-300 ${user === undefined ? "blur-sm bg-border/40" : ""}`}
+                      >
+                        {user?.name?.[0]?.toUpperCase() ?? ""}
                       </AvatarFallback>
                     </Avatar>
                     <div className="flex flex-col overflow-hidden">

@@ -4,7 +4,6 @@
 import { TEMPLATES } from "@/features/templates/types";
 import { TemplateCard } from "@/features/templates/components/TemplateCard";
 import { useCreateDraft } from "@/features/templates/hooks/useCreateDraft";
-import { Sparkles } from "lucide-react";
 
 export default function NewLetterPage() {
   const { handleCreate, pendingId } = useCreateDraft();
@@ -12,10 +11,9 @@ export default function NewLetterPage() {
   return (
     <div className="px-4 py-12 sm:px-6 lg:px-8 max-w-311.25 mx-auto w-full animate-in fade-in duration-700">
       <div className="flex flex-col mb-16 items-center text-center max-w-2xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface text-muted-foreground text-[10px] font-bold uppercase tracking-[0.14em] mb-6 border border-border">
-          <Sparkles className="w-3 h-3" />
-          New Correspondence
-        </div>
+        <span className="text-[11px] uppercase tracking-[0.25em] text-primary/80 font-medium mb-3">
+          ✦ Archive Selection ✦
+        </span>
         <h1 className="font-display text-4xl md:text-5xl text-foreground font-medium tracking-tight">
           Choose Your <span className="italic text-primary">Canvas</span>
         </h1>
