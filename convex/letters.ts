@@ -1,5 +1,5 @@
 //convex/letters.ts
-import { query } from "./_generated/server";
+import { query, mutation } from "./_generated/server";
 import { v } from "convex/values";
 import { paginationOptsValidator } from "convex/server";
 import { getAuthUserId } from "@convex-dev/auth/server";
@@ -33,5 +33,36 @@ export const getMyLetters = query({
       .withIndex("by_author", (q) => q.eq("authorId", userId))
       .order("desc")
       .paginate(args.paginationOpts);
+  },
+});
+
+export const createDraft = mutation({
+  args: {
+    template: v.union(
+      v.literal("love"),
+      v.literal("sorry"),
+      v.literal("milestone"),
+    ),
+  },
+  handler: async (ctx, args) => {
+    const userId = await getAuthUserId(ctx);
+    if (userId === null) {
+      throw new Error("Not authenticated");
+    }
+
+    const now = Date.now();
+
+    return await ctx.db.insert("letters", {
+      authorId: userId,
+      template: args.template,
+      language: "en",
+      font: "cormorant-garamond",
+      rawContent: "",
+      renderedContent: "",
+      status: "draft",
+      expiryOption: "never",
+      createdAt: now,
+      updatedAt: now,
+    });
   },
 });

@@ -26,7 +26,11 @@ export default defineSchema({
     // status ever existing.
     slug: v.optional(v.string()),
 
-    template: v.union(v.literal("love"), v.literal("sorry")),
+    template: v.union(
+      v.literal("love"),
+      v.literal("sorry"),
+      v.literal("milestone"),
+    ),
     language: v.union(v.literal("en"), v.literal("ur")),
 
     // Font id must exist in features/editor/utils/fonts.ts's registry —
