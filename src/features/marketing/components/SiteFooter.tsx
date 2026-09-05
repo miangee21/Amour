@@ -1,7 +1,12 @@
 //src/features/marketing/components/SiteFooter.tsx
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function SiteFooter() {
+  const pathname = usePathname();
+
   return (
     <footer className="border-t border-border bg-background">
       <div className="max-w-7xl mx-auto px-6 pt-8 pb-6">
@@ -10,6 +15,15 @@ export function SiteFooter() {
           <div className="md:col-span-2 space-y-4">
             <Link
               href="/home"
+              onClick={(event) => {
+                if (pathname === "/home" || pathname === "/") {
+                  event.preventDefault();
+                  window.history.replaceState(null, "", "/home");
+                  document
+                    .querySelector<HTMLElement>("[data-home-scroll]")
+                    ?.scrollTo({ top: 0, behavior: "smooth" });
+                }
+              }}
               className="flex items-center gap-2.5 w-fit group"
             >
               <div className="relative flex items-center justify-center w-6 h-6 rounded-md bg-linear-to-br from-primary to-primary/80 shadow-sm transition-all group-hover:shadow-md">

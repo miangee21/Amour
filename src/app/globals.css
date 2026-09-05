@@ -69,6 +69,22 @@
   --not-found-petal: #b85c6b;
   --not-found-stamp-ink: #7a2c3b;
   --not-found-card-shadow: 0 25px 50px rgba(74, 46, 61, 0.2);
+
+  /* Auth Stationery Theme — Light */
+  --auth-card-bg: #fef8f6;
+  --auth-card-shadow: 0 20px 40px rgba(74, 46, 61, 0.1);
+  --auth-ruled-line: #d1c3c8;
+  --auth-text-heading: #321927;
+  --auth-text-muted: #807478;
+  --auth-input-border: rgba(152, 67, 82, 0.25);
+  --auth-input-focus: #984352;
+  --auth-badge-bg: rgba(255, 217, 221, 0.4);
+  --auth-badge-text: #7a2c3b;
+  --auth-btn-bg: #984352;
+  --auth-btn-hover: #7a2c3b;
+  --auth-btn-text: #ffffff;
+  --auth-btn-icon: #ffe088;
+  --auth-watermark: rgba(152, 67, 82, 0.05);
 }
 
 .dark {
@@ -136,6 +152,22 @@
   --not-found-petal: #c97283;
   --not-found-stamp-ink: #d4af6a;
   --not-found-card-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
+
+  /* Auth Stationery Theme — Dark */
+  --auth-card-bg: #322029;
+  --auth-card-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  --auth-ruled-line: #4a2e3d;
+  --auth-text-heading: #f3dede;
+  --auth-text-muted: #c9a6ae;
+  --auth-input-border: rgba(243, 222, 222, 0.25);
+  --auth-input-focus: #c97283;
+  --auth-badge-bg: rgba(201, 114, 131, 0.2);
+  --auth-badge-text: #f3dede;
+  --auth-btn-bg: #c97283;
+  --auth-btn-hover: #b85c6b;
+  --auth-btn-text: #2a1b22;
+  --auth-btn-icon: #2a1b22;
+  --auth-watermark: rgba(243, 222, 222, 0.03);
 }
 
 @theme inline {

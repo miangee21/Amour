@@ -1,4 +1,4 @@
-//proxy.ts
+//src/proxy.ts
 import {
   convexAuthNextjsMiddleware,
   createRouteMatcher,
@@ -6,7 +6,7 @@ import {
 } from "@convex-dev/auth/nextjs/server";
 
 const isAppRoute = createRouteMatcher(["/dashboard", "/new", "/write(.*)"]);
-const isAuthRoute = createRouteMatcher(["/login", "/signup"]);
+const isAuthRoute = createRouteMatcher(["/login", "/signup", "/home"]);
 
 export default convexAuthNextjsMiddleware(async (request, { convexAuth }) => {
   const authed = await convexAuth.isAuthenticated();

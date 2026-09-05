@@ -8,7 +8,10 @@ import { CustomScrollbar } from "@/shared/components/CustomScrollbar";
 
 export default function HomePage() {
   return (
-    <CustomScrollbar className="h-screen w-full flex flex-col bg-background">
+    <CustomScrollbar
+      data-home-scroll
+      className="h-screen w-full flex flex-col bg-background"
+    >
       <SiteNavbar />
       <main className="flex-1 pt-12">
         <HeroSection />
