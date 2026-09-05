@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import type { LoginFormValues, SignupFormValues } from "../types";
 
 export function useAuthActions() {
-  const { signIn, signOut } = useConvexAuthActions();
+  const { signIn, signOut: convexSignOut } = useConvexAuthActions();
   const router = useRouter();
 
   const login = async (values: LoginFormValues) => {
@@ -17,11 +17,17 @@ export function useAuthActions() {
         password: values.password,
         flow: "signIn",
       });
-      toast.success("Letter unsealed successfully.", { icon: "🖋️" });
+      toast.success("Ledger Opened", {
+        description: "Letter unsealed successfully.",
+        icon: "🖋️",
+      });
       router.push("/dashboard");
     } catch {
       // Server-side invalid credentials toast
-      toast.error("Invalid credentials. The wax seal remains unbroken.");
+      toast.error("Access Denied", {
+        description: "Invalid credentials. The wax seal remains unbroken.",
+        icon: "🔒",
+      });
     }
   };
 
@@ -33,7 +39,10 @@ export function useAuthActions() {
         password: values.password,
         flow: "signUp",
       });
-      toast.success("Vows inscribed. Welcome to Amour.", { icon: "📜" });
+      toast.success("Ledger Created", {
+        description: "Vows inscribed. Welcome to Amour.",
+        icon: "📜",
+      });
       router.push("/dashboard");
     } catch (error) {
       // Handle "Email already in use" or other server errors
@@ -43,6 +52,15 @@ export function useAuthActions() {
           : "Failed to inscribe vows. Please try again.";
       toast.error(msg);
     }
+  };
+
+  const signOut = async () => {
+    await convexSignOut();
+    toast.success("The wax seal is broken.", {
+      description: "You have securely closed your ledger.",
+      icon: "🕯️",
+    });
+    router.push("/home");
   };
 
   return { login, signup, signOut };

@@ -11,13 +11,13 @@ interface DashboardTabsProps {
 
 export function DashboardTabs({ value, onValueChange }: DashboardTabsProps) {
   return (
-    <div className="flex items-center gap-2 border-b border-border mb-6 pb-px">
+    <div className="flex items-center gap-8 border-b border-border/60 mb-8">
       <button
         onClick={() => onValueChange("all")}
-        className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 transition-colors focus:outline-none ${
+        className={`flex items-center gap-2 pb-3 text-sm font-medium border-b-2 transition-all duration-300 focus:outline-none ${
           value === "all"
             ? "border-primary text-primary"
-            : "border-transparent text-muted-foreground hover:text-foreground hover:border-border"
+            : "border-transparent text-muted-foreground hover:text-foreground hover:border-border/80"
         }`}
       >
         <ScrollText className="w-4 h-4" />
@@ -25,10 +25,10 @@ export function DashboardTabs({ value, onValueChange }: DashboardTabsProps) {
       </button>
       <button
         onClick={() => onValueChange("shared")}
-        className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 transition-colors focus:outline-none ${
+        className={`flex items-center gap-2 pb-3 text-sm font-medium border-b-2 transition-all duration-300 focus:outline-none ${
           value === "shared"
             ? "border-primary text-primary"
-            : "border-transparent text-muted-foreground hover:text-foreground hover:border-border"
+            : "border-transparent text-muted-foreground hover:text-foreground hover:border-border/80"
         }`}
       >
         <Send className="w-4 h-4" />
