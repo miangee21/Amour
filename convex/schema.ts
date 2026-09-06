@@ -15,6 +15,7 @@ export default defineSchema({
     emailVerificationTime: v.optional(v.number()),
     image: v.optional(v.string()),
     isAnonymous: v.optional(v.boolean()),
+    stats: v.optional(v.object({ total: v.number(), shared: v.number() })),
   }).index("by_email", ["email"]),
 
   letters: defineTable({
@@ -38,9 +39,11 @@ export default defineSchema({
     // literal union, so adding a new font never requires a schema change.
     font: v.string(),
 
+    title: v.optional(v.string()),
     recipientName: v.optional(v.string()),
     rawContent: v.string(), // typed content (roman/english as typed)
-    renderedContent: v.string(), // final content to display (post-transliteration)
+    renderedContent: v.string(), // final content to display
+    searchMeta: v.string(), // Combined field for fast searching (title + name)
 
     status: v.union(v.literal("draft"), v.literal("shared")),
 
@@ -67,5 +70,10 @@ export default defineSchema({
     // with a real server-side paginated query instead of fetching
     // everything and filtering client-side (see Step 9).
     .index("by_author_status", ["authorId", "status"])
-    .index("by_slug", ["slug"]),
+    .index("by_slug", ["slug"])
+    // Search index for fast, server-side full-text search without memory overload
+    .searchIndex("search_content", {
+      searchField: "searchMeta",
+      filterFields: ["authorId", "status"],
+    }),
 });
